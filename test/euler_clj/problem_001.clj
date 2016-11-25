@@ -18,19 +18,19 @@
 (defn multiple-of? [num denom]
   (= (mod num denom) 0))
 
-(defn multiple-of-3-or-5 [num]
+(defn multiple-of-3-and-5 [num]
   (if (or (multiple-of? num 3) (multiple-of? num 5))
     num 0))
 
-(defn sum-multiples-of-3-or-5 [max]
-  (reduce + (map multiple-of-3-or-5 (range 1 max))))
+(defn sum-multiples-of-3-and-5 [max]
+  (reduce + (map multiple-of-3-and-5 (range 1 max))))
 
 ; test
 (deftest base-case
-  (is (= (sum-multiples-of-3-or-5 10) 23)))
+  (is (= (sum-multiples-of-3-and-5 10) 23)))
 
 (run-tests 'euler-clj.problem-001)
 
 ; main
-(println (sum-multiples-of-3-or-5 999))
+(println (sum-multiples-of-3-and-5 999))
 
