@@ -34,7 +34,7 @@
   (every? (partial divisible-by? num) vals))
 
 (defn solve-for [top]
-  (first (filter (partial divisible-by-all? (range 2 top)) (drop top(range)))))
+  (first (filter (partial divisible-by-all? (range 2 top)) (iterate (partial + top) top))))
 
 
 (solve-for 20)
