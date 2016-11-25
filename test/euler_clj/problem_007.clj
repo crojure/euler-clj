@@ -1,4 +1,4 @@
-(ns euler-clj.problem-006
+(ns euler-clj.problem-007
   (:require [clojure.test :refer :all]
             [clojure.string :as string]))
 
@@ -31,6 +31,8 @@
 ; tests
 (deftest sixth-prime
   (is (= (nth-prime 6) 13)))
+
+(run-tests 'euler-clj.problem-007)
 
 ; main
 ;(println "Problem 6 Solution: " (diff-sums 100))
