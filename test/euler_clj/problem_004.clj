@@ -2,29 +2,29 @@
   (:require [clojure.test :refer :all]
             [clojure.string :as string]))
 
-
-
 ; Project Euler
 ;
-; Largest Prime Factor
+; Largest palindrome product
 ;
-; Problem 3
+; Problem 4
 ;
-; The prime factors of 13195 are 5, 7, 13 and 29.
+; A palindromic number reads the same both ways. The largest palindrome made from
+; the product of two 2-digit numbers is 9009 = 91 × 99.
 ;
-; What is the largest prime factor of the number 600851475143 ?
+; Find the largest palindrome made from the product of two 3-digit numbers.
 ;
 ; Solution by twcrone
 
 (defn palindromic? [num] (= (str num) (string/reverse (str num))))
 
-(defn palidromic-products [val]
-  (filter palindromic? (map (partial * val) (range val 1 -1))))
+(defn range-for [val]
+  (range val 1 -1))
 
-(println (palidromic-products 999))
+(defn palidromic-products [val]
+  (filter palindromic? (map (partial * val) (range-for val))))
 
 (defn solve-for [val]
-  (apply max (flatten (map palidromic-products (range val 1 -1)))))
+  (apply max (flatten (map palidromic-products (range-for val)))))
 
 ; test
 (deftest palindromic-number-true
