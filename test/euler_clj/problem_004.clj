@@ -18,10 +18,18 @@
 
 (defn palindromic? [num] (= (str num) (string/reverse (str num))))
 
-(defn max-palidromic-product [vals]
-  (filter palindromic? (map (partial * (first vals)) (rest vals))))
+(defn palidromic-products [val]
+  (filter palindromic? (map (partial * val) (range val 1 -1))))
 
-(println (max-palidromic-product (range 1 99)))
+(println (palidromic-products 999))
+
+(defn something [val]
+  (apply max
+         (flatten (map palidromic-products
+              (range val 1 -1)))))
+
+(println (something 99))
+
 
 ; test
 (deftest palindromic-number-true
