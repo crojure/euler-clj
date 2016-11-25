@@ -23,20 +23,17 @@
 
 (println (palidromic-products 999))
 
-(defn something [val]
-  (apply max
-         (flatten (map palidromic-products
-              (range val 1 -1)))))
-
-(println (something 99))
-
+(defn solve-for [val]
+  (apply max (flatten (map palidromic-products (range val 1 -1)))))
 
 ; test
 (deftest palindromic-number-true
   (is (palindromic? 101)))
 
+(deftest solve-for-base-case
+  (is (= (solve-for 99) 9009)))
 
-;(run-tests 'euler-clj.problem-004)
+(run-tests 'euler-clj.problem-004)
 
 ; main
-;(println "Problem 4 Solution: " (solve-for 600851475143))
+(println "Problem 4 Solution: " (solve-for 999))
