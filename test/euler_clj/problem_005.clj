@@ -20,42 +20,26 @@
 (defn divisible-by? [n d]
   (= (mod n d) 0))
 
-(defn solution? [n top]
-  (let [nums (range 1 top)]
-    (every? (partial divisible-by? n) nums)))
-
-(defn solve [top]
-  (loop [candidate top]
-    (if (not (solution? candidate top))
-      (recur (+ candidate top))
-      candidate)))
-
 (defn divisible-by-all? [vals num]
   (every? (partial divisible-by? num) vals))
 
 (defn solve-for [top]
   (first (filter (partial divisible-by-all? (range 2 top)) (iterate (partial + top) top))))
 
-
-(solve-for 20)
-
-
-(solve 10)
-
 ; tests
 (deftest base-case
-  (is (= (solve 10) 2520)))
+  (is (= (solve-for 10) 2520)))
 
 (deftest solve-for-1
-  (is (= (solve 1) 1)))
+  (is (= (solve-for 1) 1)))
 
 (deftest solve-for-5
-  (is (= (solve 5) 60)))
+  (is (= (solve-for 5) 60)))
 
 (deftest solve-for-15
-  (is (= (solve 15) 360360)))
+  (is (= (solve-for 15) 360360)))
 
 (run-tests 'euler-clj.problem-005)
 
 ; main
-(println "Problem 5 Solution: " (solve 20))
+(println "Problem 5 Solution: " (solve-for 20))
