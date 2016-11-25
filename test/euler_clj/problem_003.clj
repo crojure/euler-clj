@@ -26,7 +26,7 @@
   (filter prime? (filter (partial is-factor-of? n) (candidates n))))
 
 (defn solve-for [n]
-  (first (prime-factors-of 600851475143)))
+  (first (prime-factors-of n)))
 
 ; test
 (deftest is-factor-of-true
@@ -36,7 +36,7 @@
   (is (not (is-factor-of? 10 3))))
 
 (deftest base-case
-  (is (solve-for 13195) 29))
+  (is (= (solve-for 13195) 29)))
 
 (run-tests 'euler-clj.problem-003)
 
