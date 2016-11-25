@@ -27,12 +27,6 @@
   ([a b]
    (lazy-seq (cons a (fib b (+ a b))))))
 
-(defn even-fib []
-  (filter even? (fib)))
-
-(defn even-fib-upto [max]
-  (take-while (partial > max) (even-fib)))
-
 (defn solve-for [max]
   (reduce + (take-while (partial > max) (filter even? (fib)))))
 
