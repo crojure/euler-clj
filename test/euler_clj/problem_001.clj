@@ -32,5 +32,5 @@
 (run-tests 'euler-clj.problem-001)
 
 ; main
-(println (sum-multiples-of-3-and-5 999))
+(println "Problem 1 Solution: " (sum-multiples-of-3-and-5 999))
 
