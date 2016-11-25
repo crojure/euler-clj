@@ -19,14 +19,13 @@
   (zero? (mod base num)))
 
 (defn prime? [n]
-  (not-any? (partial is-factor-of? n) (range 2 n)))
+  (not-any? (partial is-factor-of? n) (range 2 (/ n 2))))
 
 (prime? 311)
 
 (defn nth-prime [n]
-  (nth (filter prime? (range)) (+ n 1)))
+  (nth (filter prime? (range)) (+ n 2)))
 
-(nth-prime 6)
 
 ; tests
 (deftest sixth-prime
@@ -34,5 +33,6 @@
 
 (run-tests 'euler-clj.problem-007)
 
+
 ; main
-;(println "Problem 6 Solution: " (diff-sums 100))
+(println "Problem 7 Solution: " (nth-prime 10001))
